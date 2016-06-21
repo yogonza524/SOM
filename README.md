@@ -21,13 +21,11 @@ SOMCluster som = new SOMCluster.SOMClusterBuilder()
                 .weights(weigths)
                 ....
 ```
-
 # Train the Network
 ```java
 double[][] trainingPatterns = new double[][]{
         {-0.54,0.36},{0.16,0.70},{-0.80,-0.18},{-0.36,-0.52},{-0.64,0.46},{-0.40,0.34},{-0.54,0.36}  
     };
-
 som.train(trainingPatterns); //Train the network
 ```
 # Test an unknown pattern
@@ -43,7 +41,6 @@ You can check all data training
 ```java
 System.out.println(som.getTrainingLOG()); //Show every data in training mode
 ```
-
 # Neighborhood functions
 You can use the next function includes in the library
 * UnitFunction: for avoid the neighbor, by default calcule is 1
@@ -71,6 +68,5 @@ public class MyOwnFunction implements NeighborhoodFunction{
       <version>1.0.0</version>
 </dependency>
 ```
-
 # Licence
 MIT
