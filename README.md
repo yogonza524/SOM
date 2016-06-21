@@ -59,5 +59,18 @@ public class MyOwnFunction implements NeighborhoodFunction{
     }
 }
 ```
+# Import to your project
+```xml
+<repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+</repository>
+<dependency>
+      <groupId>com.github.yogonza524</groupId>
+      <artifactId>SOM</artifactId>
+      <version>1.0.0</version>
+</dependency>
+```
+
 # Licence
 MIT
