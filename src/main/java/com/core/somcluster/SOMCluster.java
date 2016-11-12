@@ -7,6 +7,7 @@ package com.core.somcluster;
 
 import java.util.Arrays;
 import java.util.Random;
+import org.apache.commons.lang.ArrayUtils;
 
 /**
  *
@@ -56,22 +57,32 @@ public class SOMCluster {
     
     public double[][] train(double[][] patterns){
         int COUNT_EPOCH = 1;
-        this.trainingLOG = "Training the Network \n";
+        this.trainingLOG = "Entrenando la Red";
+        this.trainingLOG += "\nPesos iniciales de la red: ";
+        
+        for (int i = 0; i < this.W.length; i++) {
+            this.trainingLOG += "\nPeso " + i + ": " + ArrayUtils.toString(this.W[i]); 
+        }
+//        
+//        this.trainingLOG += "\n---------------------------------------------------------";
+        
         while(COUNT_EPOCH < this.EPOCHS + 1){
+            this.trainingLOG += "\n-----------------------------------------------------";
+            this.trainingLOG += "\nEpoca: " + COUNT_EPOCH;
             for (int i = 0; i < patterns.length; i++) {
                 double[] distances = new double[this.W.length];
                 
-                this.trainingLOG += "\n-------------------------------\n";
-                this.trainingLOG += "Pattern: " + Arrays.toString(patterns[i]) + "\n";
+                this.trainingLOG += "\n-----------------------------------------------------";
+                this.trainingLOG += "\nPatron: " + Arrays.toString(patterns[i]);
                 this.trainingLOG += "\n";
                 
                 for (int j = 0; j < this.COUNT_CLUSTERS; j++) {
                     distances[j] = this.distance(W[j], patterns[i]);
-                    this.trainingLOG += "Distancia a peso " + j + ": " + distances[j] + "\n";
+                    this.trainingLOG += "\nDistancia a peso " + j + ": " + distances[j];
                 }
                 int small = this.smallest(distances);
                 
-                this.trainingLOG += "\nMatrix of weights \n";
+                this.trainingLOG += "\n\nMatriz de Pesos\n\n";
                 this.trainingLOG += Matrix.getMatrix(this.W);
                 this.trainingLOG += "\n";
                 //Update the winner
@@ -103,7 +114,11 @@ public class SOMCluster {
             
             COUNT_EPOCH++;
         }
-        
+        this.trainingLOG += "\n---------------------------------------------------------";
+        this.trainingLOG += "\nPesos estabilizados";
+        for (int i = 0; i < this.W.length; i++) {
+            this.trainingLOG += "\nPeso " + i + ": " + ArrayUtils.toString(this.W[i]); 
+        }
         return this.W;
     }
     
