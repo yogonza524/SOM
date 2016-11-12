@@ -5,6 +5,8 @@
  */
 package com.core.somcluster;
 
+import org.apache.commons.lang.ArrayUtils;
+
 /**
  *
  * @author Gonza
@@ -129,6 +131,11 @@ public class Matrix {
             System.out.print(values[i] + "\t");
         }
         System.out.println(values[values.length - 1]);
+    }
+    
+    //show all vector components
+    public static String showVectorWithOutput(double[] values){
+        return ArrayUtils.toString(values);
     }
     
     //show all matrix components

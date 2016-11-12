@@ -55,15 +55,10 @@ public class SOMCluster {
     }
     
     public double[][] train(double[][] patterns){
-        
         int COUNT_EPOCH = 1;
-        
         this.trainingLOG = "Training the Network \n";
-        
         while(COUNT_EPOCH < this.EPOCHS + 1){
-            
             for (int i = 0; i < patterns.length; i++) {
-                
                 double[] distances = new double[this.W.length];
                 
                 this.trainingLOG += "\n-------------------------------\n";

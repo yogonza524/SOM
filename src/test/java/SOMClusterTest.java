@@ -66,16 +66,17 @@ public class SOMClusterTest {
                 .dimension(2)
                 .neighborhoodFunction(new HyperbolicFunction())
                 .updateNeighborhood(true)
+                .weights(weigths)
                 .build();
         
         double[][] weightsTrain = som.train(trainingPatterns);
         
         Matrix.showMatrix(weightsTrain);
-        int n = 3;
+        int n = 2;
         System.out.println("\nTest example: " + Arrays.toString(test[n]));
         int classification = som.test(test[n]);
         System.out.println("Cluster classification: " + classification + ". Class: " + Arrays.toString(weightsTrain[classification]));
         
-        System.out.println(som.getTrainingLOG());
+//        System.out.println(som.getTrainingLOG());
      }
 }
